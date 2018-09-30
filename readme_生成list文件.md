@@ -1,10 +1,10 @@
-
 # 生成所需的ｌｉｓｔ文件　并将图片拷贝到新文件
 
-## 本文是为了将篮球数据集的数据格式转换为mxnet格式所需要的格式(rec格式)，需要转换原有的．xml格式的标签文件转换为需要的list文件．篮球数据集包含三部分：Annotations JPEGImages val.txt
+##
+本文是为了将篮球数据集的数据格式转换为mxnet格式所需要的格式(rec格式)，需要转换原有的．xml格式的标签文件转换为需要的list文件．篮球数据集包含三部分：Annotations
+JPEGImages val.txt
 
-
-```python
+```{.python .input}
 import sys
 import xml.etree.ElementTree as ET
 from mxnet import image  
@@ -13,8 +13,7 @@ import os
 import shutil
 ```
 
-
-```python
+```{.python .input}
 #fileName='./label_id.txt'
 fileName='./val.txt'#存放者训练数据集的图片的标号
 fileName2='./Annotations/'#各个图片的标签.xml 存放的文件夹
@@ -37,7 +36,7 @@ with open(fileName,'r') as fp:
         
         #将图片复制到新文件夹
         oldname='./JPEGImages/'+line+'.JPEG'#需要拷贝的文件的路径和文件名
-        newname=pic_sel_dir+str(i)+'.jpg'#新路径＋新文件名
+        newname=pic_sel_dir+str(i)+'.jpg'#新路径＋新文件名 新的名字的长短不一
         shutil.copyfile(oldname,newname)#复制图片
         
         tree = ET.ElementTree(file=xml_dir)#打开xml_dir
@@ -64,7 +63,7 @@ with open(fileName,'r') as fp:
             # class  
             str(x_min) + '\t' + str(y_min) + '\t' + str(x_max) + '\t' +str(y_max) + '\t' +  
             # xmin, ymin, xmax, ymax  
-           str(i) + '.jpg\n'
+            str(i) + '.jpg\n'#图片的名称似乎是根据顺序来的
             )
         i=i+1#行标号
         #fp1.write(line)
@@ -78,5 +77,19 @@ with open(fileName,'r') as fp:
 print(i)
 ```
 
-    174
+```{.python .input  n=2}
 
+```
+
+```{.json .output n=2}
+[
+ {
+  "name": "stdout",
+  "output_type": "stream",
+  "text": "1.4285714285714286\n"
+ }
+]
+```
+
+
+    174

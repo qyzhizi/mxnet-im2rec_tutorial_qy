@@ -1,15 +1,19 @@
 # mxnet data IO   im2rec tutorial #
-### 这是将训练图片打包成rec格式(二进制格式)，分为两种情况，用于图片的分类和目标的检测，在使用工具`im2rec.py`之前需要制作相应的list文件．
-
+###
+这是将训练图片打包成rec格式(二进制格式)，分为两种情况，用于图片的分类和目标的检测，在使用工具`im2rec.py`之前需要制作相应的list文件．
 **this simple tutorial will introduce how
-to use im2rec for mx.image.ImageIter and ImageDetIter and how to use im2rec for
+to use im2rec for mx.image.ImageIter
+and ImageDetIter and how to use im2rec for
 COCO DataSet**
-ok let's start but prepare your im2rec first
-https://github.com/apache/incubator-mxnet/blob/master/tools/im2rec.py
+ok let's start but
+prepare your im2rec first
+https://github.com/apache/incubator-
+mxnet/blob/master/tools/im2rec.py
 
 ## im2rec
 ##
-**step 1. you should make a .lst file** 
+**step 1. you should make a .lst
+file** 
 run in terminal
 
 ```{.python .input}
@@ -276,16 +280,16 @@ print(DataSets['annotations'][0])
 jsonName = 'ownset.json'  
 directory = 'ownSet/'  
 data = {}  
-data['DataSet] = []  
+data['DataSet'] = []  
 with open(jsonName, 'w') as outfile:  
     if not os.path.exists(directory):  
         os.makedirs(directory)  
     for DataSet in DataSets['annotations']:  
         box = DataSet['bbox']  
         default_name = "000000000000"  
-   img_id = str(DataSet['image_id'])  
+        img_id = str(DataSet['image_id'])  
         img_name = default_name[:len(default_name) - len(img_id)] + str(img_id) + '.jpg'  
-   coco_name = 'train2017/' + img_name  
+        coco_name = 'train2017/' + img_name  
         if DataSet['category_id'] == 16:  #bird
   
             with open(coco_name, 'rb') as f:  
