@@ -15,6 +15,7 @@ https://github.com/cocodataset/cocoapi
 Detection数据结构
 http://cocodataset.org/#format-data
 
+```
 {
 "info" : info, 
 "images" : [image],
@@ -67,6 +68,7 @@ categories{
 "id" : int,
 "name" : str,
 }
+```
 
 ```{.python .input}
 import json  
