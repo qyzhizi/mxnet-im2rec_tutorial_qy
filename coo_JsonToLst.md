@@ -1,10 +1,10 @@
-```{.python .input  n=1}
+```{.python .input}
 import json  
 import mxnet as mx  
 from skimage import io 
 ```
 
-```{.python .input  n=2}
+```{.python .input}
 jsonName = 'ownset.json' #当前文件夹的某一类的标签文件
 #directory = 'ownSet/'  
 directory ='/media/qy/My Passport/coco_dataset/ownSet/'#提取的某一类的图片集
@@ -14,32 +14,12 @@ with open(jsonName, 'r') as f:
 print(DataSet['DataSet'][0]['img_name'])  #答应第一张图片的name
 ```
 
-```{.json .output n=2}
-[
- {
-  "name": "stdout",
-  "output_type": "stream",
-  "text": "000000368402.jpg\n"
- }
-]
-```
-
-```{.python .input  n=3}
+```{.python .input}
 #查看第一张图片的标签
 print(DataSet['DataSet'][0])  
 ```
 
-```{.json .output n=3}
-[
- {
-  "name": "stdout",
-  "output_type": "stream",
-  "text": "{'img_name': '000000368402.jpg', 'height': 427, 'width': 640, 'bbox': [0.41042187500000005, 0.6089461358313817, 0.051859375, 0.14840749414519905], 'class': 47}\n"
- }
-]
-```
-
-```{.python .input  n=16}
+```{.python .input}
 #查看数据的类型
 print(DataSet['DataSet'][0]['bbox'])
 print(type(DataSet['DataSet'][0]['height']))
@@ -47,17 +27,7 @@ print(type(DataSet['DataSet'][0]['bbox']))
 print(type(int(DataSet['DataSet'][0]['height'])))#整型使用整型强制转换之后还是整型
 ```
 
-```{.json .output n=16}
-[
- {
-  "name": "stdout",
-  "output_type": "stream",
-  "text": "[0.41042187500000005, 0.6089461358313817, 0.051859375, 0.14840749414519905]\n<class 'int'>\n<class 'list'>\n<class 'int'>\n"
- }
-]
-```
-
-```{.python .input  n=4}
+```{.python .input}
 #查看图片的数量
 j=0
 for i in range(len(DataSet['DataSet'])):
@@ -66,17 +36,7 @@ for i in range(len(DataSet['DataSet'])):
 print(j,k)
 ```
 
-```{.json .output n=4}
-[
- {
-  "name": "stdout",
-  "output_type": "stream",
-  "text": "20650 20649\n"
- }
-]
-```
-
-```{.python .input  n=5}
+```{.python .input}
 img_idx=0
 #with open('ownSet.lst', 'w+') as f:
 with open('./ownSet.lst', 'w+') as f:  
@@ -97,16 +57,6 @@ with open('./ownSet.lst', 'w+') as f:
         img_idx += 1
 ```
 
-```{.python .input  n=6}
+```{.python .input}
 print(img_idx)#查看图片的数量
-```
-
-```{.json .output n=6}
-[
- {
-  "name": "stdout",
-  "output_type": "stream",
-  "text": "20650\n"
- }
-]
 ```
