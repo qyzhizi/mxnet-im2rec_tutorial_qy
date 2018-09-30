@@ -15,47 +15,53 @@ https://github.com/cocodataset/cocoapi
 Detection数据结构
 http://cocodataset.org/#format-data
 
-```
+```{.python .input}
+'''
 {
 "info" : info, 
-"images" : [image],
+"images"
+: [image],
 #[image]是一个列表，列表中的每一个元素是一个字典，字典结构如下面image{}所示
-"annotations" : [annotation], #同上
+"annotations" :
+[annotation], #同上
 "licenses" : [license],#同上
 "categories" : [categories],#同上
 }
-
 info{
 "year" :
 int, 
 "version" : str, 
 "description" : str, 
-"contributor" : str, 
+"contributor" :
+str, 
 "url" : str,
 "date_created" : datetime,
 }
 
 image{
 "id" : int,
-"width" : int,
+"width" :
+int,
 "height" : int,
 "file_name" : str, 
 "license" : int, 
-"flickr_url" : str, 
+"flickr_url" : str,
 "coco_url" : str,
 "date_captured" : datetime,
 }
 
 license{
 "id" : int,
-"name" : str, 
+"name" :
+str, 
 "url" : str,
 }
 
 annotation{
 "id" : int, 
 "image_id" : int, 
-"category_id" : int,
+"category_id"
+: int,
 "segmentation" : RLE or [polygon], 
 "area" : float, 
 "bbox" :
@@ -68,6 +74,8 @@ categories{
 "id" : int,
 "name" : str,
 }
+'''
+
 ```
 
 ```{.python .input}
